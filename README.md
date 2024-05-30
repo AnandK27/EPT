@@ -55,6 +55,8 @@ Train:
 Test:  
 `python -m tool.test --config config/IntrA/IntrA_pointtransformer_seg_repro sample_points 512`  
 
+`python -m PointTransformerV3.test --config config/IntrA/IntrA_pointtransformer_seg_repro.yaml sample_points 512`
+
 
 Or you can use the bash scipt to run train.py and test.py sequentially:  
 `sh tool/ept.sh IntrA pointtransformer_seg_repro`  
