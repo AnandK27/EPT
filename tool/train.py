@@ -158,6 +158,7 @@ def train_one_epoch(train_loader, model, optimizer):
     for batch_i, (pts, gts, egts, eweights, gmatrix, idxs) in enumerate(train_loader):
         pts, gts, egts, eweights, gmatrix = pts.cuda(), gts.cuda(), egts.cuda(), eweights.mean(dim=0).cuda(), gmatrix.cuda()
         seg_preds, seg_refine_preds, seg_embed, edge_preds = model(pts, gmatrix, idxs)
+        print(seg_preds.shape, gts.shape)
         loss_seg = F.cross_entropy(seg_preds, gts, weight=train_loader.dataset.segweights.cuda())
         loss_seg_refine = F.cross_entropy(seg_refine_preds, gts, weight=train_loader.dataset.segweights.cuda())
         loss_edge = F.cross_entropy(edge_preds, egts, weight=eweights)
