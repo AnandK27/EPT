@@ -14,7 +14,7 @@ import torch.nn as nn
 from torchvision import transforms
 from tensorboardX import SummaryWriter
 
-from dataset import IntrADataset
+from dataset.IntrADataset import IntrADataset
 import dataset.data_utils as d_utils
 
 from utils import config
